@@ -37,10 +37,11 @@ int main(){
 	/**/
 
 	vector <float> accuracy;	// accuracy of different folds
-	vector <float> precision;	// accuracy of different folds
-	vector <float> recall;		// accuracy of different folds
-	vector <float> F_measure;	// accuracy of different folds
+	vector <float> precision;	// precision of different folds
+	vector <float> recall;		// recall of different folds
+	vector <float> F_measure;	// F_measure of different folds
 
+	// Training and validating for different folds
 	for (int BatchNum = 1; BatchNum <= NumOfFolds; BatchNum ++){
 		vector<int> training_set;		// indices of the training set
 		vector<int>	test_set;		// indices of the test set
@@ -51,7 +52,7 @@ int main(){
 		// creating the root node and intialize it with training data
 		Node *head = new Node(&data,training_set,0);
 		// Build the Decision Tree
-		// The stopping criteria can be set in the header file file "Node.h"
+		// The stopping criteria can be set in the header file "Node.h"
 		head->Build_Tree(all_atts);
 
 		// Feeding the test data and generating the results
