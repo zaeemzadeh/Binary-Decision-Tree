@@ -27,6 +27,8 @@ private:
 	float Entropy();
 	// splits the data and creates the children nodes (training phase)
 	void m_create_children();
+
+	void m_remove_children();
 	// Selects the label for leaf nodes  (training phase)
 	void m_select_label();
 	// sets the labes for data in leaf nodes (testing phase)
