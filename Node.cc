@@ -290,7 +290,7 @@ void Node::m_remove_children(){
 	for (int i = 0; i < m_Children.size(); i++){
 		delete m_Children[i];
 	}
-	m_remove_children();
+	m_Children.clear();
 	return;
 }
 
