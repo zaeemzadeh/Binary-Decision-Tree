@@ -132,7 +132,7 @@ Attribute Node::select_decision_attribute(const vector <Attribute> candidate_att
 		if (m_decision_att != Sex)
 			m_threshold = compute_threshold(m_decision_att);
 
-		m_Children.clear();
+		m_remove_children();
 		m_create_children();
 
 		float curr_entropy = 0;
@@ -148,7 +148,7 @@ Attribute Node::select_decision_attribute(const vector <Attribute> candidate_att
 			best_att = candidate_atts[i];
 		}
 	}
-	m_Children.clear();
+	m_remove_children();
 	return best_att;
 }
 
@@ -286,7 +286,13 @@ void Node::m_set_label(){
 	return;
 }
 
-
+void Node::m_remove_children(){
+	for (int i = 0; i < m_Children.size(); i++){
+		delete m_Children[i];
+	}
+	m_remove_children();
+	return;
+}
 
 void Node::print_tree(){
 
