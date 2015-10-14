@@ -52,21 +52,10 @@ void Node::Build_Tree(const vector <Attribute> candidate_atts){
 
 	m_decision_att = select_decision_attribute(candidate_atts);
 	//cout << "best att: " << m_decision_att << endl;
-	if (m_decision_att <0 || m_decision_att > 7){
-		//cout << "decision att return: ATT = " << m_decision_att << " Depth = " << m_depth << endl;
-		m_select_label();
-		return;
-	}
 
 	// Then we compute the threshold (If necessary)
 	if (m_decision_att != Sex)
 		m_threshold = compute_threshold(m_decision_att);
-
-	if (m_threshold == -1 && m_decision_att != Sex){
-		m_select_label();
-		//cout << " return: Thrshold = -1 " << endl;
-		return;
-	}
 
 	// Then the children nodes are created
 	m_create_children();
